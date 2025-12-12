@@ -2,6 +2,7 @@
 
 import {useState} from "react";
 import {QuestionCard} from "@/client/components/question-card";
+import {ResultsScreen} from "@/client/screens/results-screen";
 import {Button} from "@/components/ui/button";
 
 const QUESTIONS = [
@@ -14,6 +15,7 @@ const QUESTIONS = [
       "var es más moderno que let y const",
       "const permite reasignación, let y var no",
     ],
+    correctAnswer: "let y const tienen scope de bloque, var tiene scope de función",
   },
   {
     id: 2,
@@ -24,11 +26,13 @@ const QUESTIONS = [
       "Una forma de importar módulos",
       "Un tipo de dato primitivo",
     ],
+    correctAnswer: "Una función que tiene acceso a variables de su scope externo",
   },
   {
     id: 3,
     question: "¿Qué método se usa para agregar un elemento al final de un array?",
     options: ["push()", "pop()", "shift()", "unshift()"],
+    correctAnswer: "push()",
   },
   {
     id: 4,
@@ -39,6 +43,7 @@ const QUESTIONS = [
       "Un método para elevar elementos del DOM",
       "Una técnica de compilación",
     ],
+    correctAnswer: "El comportamiento de mover declaraciones al inicio del scope",
   },
   {
     id: 5,
@@ -49,6 +54,7 @@ const QUESTIONS = [
       "No hay diferencia",
       "== es más estricto que ===",
     ],
+    correctAnswer: "== compara valor, === compara valor y tipo",
   },
   {
     id: 6,
@@ -59,11 +65,13 @@ const QUESTIONS = [
       "Un tipo de dato primitivo",
       "Un método para hacer peticiones HTTP",
     ],
+    correctAnswer: "Un objeto que representa el resultado de una operación asíncrona",
   },
   {
     id: 7,
     question: "¿Qué método se usa para transformar un array en JavaScript?",
     options: ["map()", "forEach()", "filter()", "reduce()"],
+    correctAnswer: "map()",
   },
   {
     id: 8,
@@ -74,6 +82,7 @@ const QUESTIONS = [
       "Una estructura de control",
       "Un método de depuración",
     ],
+    correctAnswer: "El mecanismo que maneja la ejecución asíncrona del código",
   },
   {
     id: 9,
@@ -84,6 +93,7 @@ const QUESTIONS = [
       "Una forma de eliminar código",
       "Un patrón de diseño",
     ],
+    correctAnswer: "Una sintaxis para extraer valores de arrays u objetos",
   },
   {
     id: 10,
@@ -94,19 +104,47 @@ const QUESTIONS = [
       "Una función para distribuir datos",
       "Un operador matemático",
     ],
+    correctAnswer: "Un operador que expande elementos de arrays u objetos",
   },
 ];
 
 export const TriviaScreen = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [answers, setAnswers] = useState<Record<number, string>>({});
+  const [showResults, setShowResults] = useState(false);
+
   const currentQuestion = QUESTIONS[currentQuestionIndex];
   const isLastQuestion = currentQuestionIndex === QUESTIONS.length - 1;
+
+  const handleAnswerChange = (answer: string) => {
+    setAnswers((prev) => ({
+      ...prev,
+      [currentQuestion.id]: answer,
+    }));
+  };
 
   const handleNext = () => {
     if (currentQuestionIndex < QUESTIONS.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
+    } else {
+      setShowResults(true);
     }
   };
+
+  const calculateCorrectAnswers = () => {
+    return QUESTIONS.filter(
+      (q) => answers[q.id] === q.correctAnswer
+    ).length;
+  };
+
+  if (showResults) {
+    return (
+      <ResultsScreen
+        totalQuestions={QUESTIONS.length}
+        correctAnswers={calculateCorrectAnswers()}
+      />
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background py-12 px-4">
@@ -121,12 +159,13 @@ export const TriviaScreen = () => {
             totalQuestions={QUESTIONS.length}
             question={currentQuestion.question}
             options={currentQuestion.options}
+            selectedAnswer={answers[currentQuestion.id]}
+            onAnswerChange={handleAnswerChange}
           />
 
           <div className="flex justify-end w-full max-w-2xl">
             <Button
               onClick={handleNext}
-              disabled={isLastQuestion}
               className="min-w-[120px]"
             >
               {isLastQuestion ? "Finalizar" : "Siguiente"}

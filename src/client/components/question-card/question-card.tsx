@@ -1,3 +1,5 @@
+"use client";
+
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {RadioGroup, RadioGroupItem} from "@/components/ui/radio-group";
 
@@ -6,6 +8,8 @@ type QuestionCardProps = {
   totalQuestions: number;
   question: string;
   options: string[];
+  selectedAnswer?: string;
+  onAnswerChange: (answer: string) => void;
 };
 
 export const QuestionCard = ({
@@ -13,6 +17,8 @@ export const QuestionCard = ({
   totalQuestions,
   question,
   options,
+  selectedAnswer,
+  onAnswerChange,
 }: QuestionCardProps) => {
   return (
     <Card className="w-full max-w-2xl">
@@ -23,7 +29,11 @@ export const QuestionCard = ({
       </CardHeader>
       <CardContent className="space-y-6">
         <h2 className="text-xl font-semibold text-foreground">{question}</h2>
-        <RadioGroup className="space-y-3">
+        <RadioGroup
+          value={selectedAnswer}
+          onValueChange={onAnswerChange}
+          className="space-y-3"
+        >
           {options.map((option, index) => (
             <div
               key={index}
