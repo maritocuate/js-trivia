@@ -12,7 +12,7 @@ async function main() {
   const data = JSON.parse(fs.readFileSync('prisma/data/questions.json', 'utf8'))
 
   for (const q of data) {
-    // Verificar si la pregunta ya existe
+    // Verify if the question already exists
     const existingQuestion = await prisma.question.findFirst({
       where: { text: q.text }
     })
