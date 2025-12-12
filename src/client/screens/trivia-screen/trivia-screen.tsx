@@ -1,120 +1,83 @@
 "use client";
 
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {QuestionCard} from "@/client/components/question-card";
 import {ResultsScreen} from "@/client/screens/results-screen";
 import {Button} from "@/components/ui/button";
+import {getQuestionsAction} from "@/server/actions/get-questions-action/get-questions";
+import type {QuestionWithOptions} from "@/server/repositories/question-repository/get-questions";
 
-const QUESTIONS = [
-  {
-    id: 1,
-    question: "¿Cuál es la diferencia entre let, const y var en JavaScript?",
-    options: [
-      "let y const tienen scope de bloque, var tiene scope de función",
-      "No hay diferencia, son sinónimos",
-      "var es más moderno que let y const",
-      "const permite reasignación, let y var no",
-    ],
-    correctAnswer: "let y const tienen scope de bloque, var tiene scope de función",
-  },
-  {
-    id: 2,
-    question: "¿Qué es un closure en JavaScript?",
-    options: [
-      "Una función que tiene acceso a variables de su scope externo",
-      "Un método para cerrar una aplicación",
-      "Una forma de importar módulos",
-      "Un tipo de dato primitivo",
-    ],
-    correctAnswer: "Una función que tiene acceso a variables de su scope externo",
-  },
-  {
-    id: 3,
-    question: "¿Qué método se usa para agregar un elemento al final de un array?",
-    options: ["push()", "pop()", "shift()", "unshift()"],
-    correctAnswer: "push()",
-  },
-  {
-    id: 4,
-    question: "¿Qué es el hoisting en JavaScript?",
-    options: [
-      "El comportamiento de mover declaraciones al inicio del scope",
-      "Una forma de optimizar el código",
-      "Un método para elevar elementos del DOM",
-      "Una técnica de compilación",
-    ],
-    correctAnswer: "El comportamiento de mover declaraciones al inicio del scope",
-  },
-  {
-    id: 5,
-    question: "¿Cuál es la diferencia entre == y === en JavaScript?",
-    options: [
-      "== compara valor, === compara valor y tipo",
-      "=== compara valor, == compara valor y tipo",
-      "No hay diferencia",
-      "== es más estricto que ===",
-    ],
-    correctAnswer: "== compara valor, === compara valor y tipo",
-  },
-  {
-    id: 6,
-    question: "¿Qué es una Promise en JavaScript?",
-    options: [
-      "Un objeto que representa el resultado de una operación asíncrona",
-      "Una función síncrona",
-      "Un tipo de dato primitivo",
-      "Un método para hacer peticiones HTTP",
-    ],
-    correctAnswer: "Un objeto que representa el resultado de una operación asíncrona",
-  },
-  {
-    id: 7,
-    question: "¿Qué método se usa para transformar un array en JavaScript?",
-    options: ["map()", "forEach()", "filter()", "reduce()"],
-    correctAnswer: "map()",
-  },
-  {
-    id: 8,
-    question: "¿Qué es el event loop en JavaScript?",
-    options: [
-      "El mecanismo que maneja la ejecución asíncrona del código",
-      "Un bucle infinito",
-      "Una estructura de control",
-      "Un método de depuración",
-    ],
-    correctAnswer: "El mecanismo que maneja la ejecución asíncrona del código",
-  },
-  {
-    id: 9,
-    question: "¿Qué es destructuring en JavaScript?",
-    options: [
-      "Una sintaxis para extraer valores de arrays u objetos",
-      "Un método para destruir variables",
-      "Una forma de eliminar código",
-      "Un patrón de diseño",
-    ],
-    correctAnswer: "Una sintaxis para extraer valores de arrays u objetos",
-  },
-  {
-    id: 10,
-    question: "¿Qué es el spread operator (...) en JavaScript?",
-    options: [
-      "Un operador que expande elementos de arrays u objetos",
-      "Un método para copiar archivos",
-      "Una función para distribuir datos",
-      "Un operador matemático",
-    ],
-    correctAnswer: "Un operador que expande elementos de arrays u objetos",
-  },
-];
+type Question = {
+  id: string;
+  question: string;
+  options: string[];
+  correctAnswer: string;
+};
+
+const shuffleArray = <T,>(array: T[]): T[] => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
 
 export const TriviaScreen = () => {
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const [loading, setLoading] = useState(true);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState<Record<number, string>>({});
+  const [answers, setAnswers] = useState<Record<string, string>>({});
   const [showResults, setShowResults] = useState(false);
 
-  const currentQuestion = QUESTIONS[currentQuestionIndex];
-  const isLastQuestion = currentQuestionIndex === QUESTIONS.length - 1;
+  useEffect(() => {
+    const loadQuestions = async () => {
+      try {
+        const dbQuestions: QuestionWithOptions[] = await getQuestionsAction(10);
+        const transformedQuestions: Question[] = dbQuestions.map((q: QuestionWithOptions) => {
+          const correctOption = q.options.find((opt) => opt.correct);
+          const shuffledOptions = shuffleArray(q.options);
+          return {
+            id: q.id,
+            question: q.text,
+            options: shuffledOptions.map((opt) => opt.text),
+            correctAnswer: correctOption?.text || "",
+          };
+        });
+        const shuffledQuestions = shuffleArray(transformedQuestions);
+        setQuestions(shuffledQuestions);
+      } catch (error) {
+        console.error("Error loading questions:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadQuestions();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background py-12 px-4 flex items-center justify-center">
+        <div className="text-center space-y-2">
+          <h1 className="text-2xl font-semibold text-foreground">Cargando preguntas...</h1>
+        </div>
+      </div>
+    );
+  }
+
+  if (questions.length === 0) {
+    return (
+      <div className="min-h-screen bg-background py-12 px-4 flex items-center justify-center">
+        <div className="text-center space-y-2">
+          <h1 className="text-2xl font-semibold text-foreground">No hay preguntas disponibles</h1>
+        </div>
+      </div>
+    );
+  }
+
+  const currentQuestion = questions[currentQuestionIndex];
+  const isLastQuestion = currentQuestionIndex === questions.length - 1;
 
   const handleAnswerChange = (answer: string) => {
     setAnswers((prev) => ({
@@ -124,7 +87,7 @@ export const TriviaScreen = () => {
   };
 
   const handleNext = () => {
-    if (currentQuestionIndex < QUESTIONS.length - 1) {
+    if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
       setShowResults(true);
@@ -132,7 +95,7 @@ export const TriviaScreen = () => {
   };
 
   const calculateCorrectAnswers = () => {
-    return QUESTIONS.filter(
+    return questions.filter(
       (q) => answers[q.id] === q.correctAnswer
     ).length;
   };
@@ -140,7 +103,7 @@ export const TriviaScreen = () => {
   if (showResults) {
     return (
       <ResultsScreen
-        totalQuestions={QUESTIONS.length}
+        totalQuestions={questions.length}
         correctAnswers={calculateCorrectAnswers()}
       />
     );
@@ -156,7 +119,7 @@ export const TriviaScreen = () => {
         <div className="flex flex-col items-center space-y-8">
           <QuestionCard
             questionNumber={currentQuestionIndex + 1}
-            totalQuestions={QUESTIONS.length}
+            totalQuestions={questions.length}
             question={currentQuestion.question}
             options={currentQuestion.options}
             selectedAnswer={answers[currentQuestion.id]}
