@@ -1,0 +1,158 @@
+[
+  {
+    "text": "What does typeof [] return in JavaScript?",
+    "category": "basics",
+    "difficulty": "easy",
+    "source": "javascript.info",
+    "options": [
+      { "text": "\"array\"", "correct": false },
+      { "text": "\"object\"", "correct": true },
+      { "text": "\"list\"", "correct": false },
+      { "text": "\"undefined\"", "correct": false }
+    ],
+    "tags": ["types", "arrays"]
+  },
+  {
+    "text": "What is the difference between let and var in JavaScript?",
+    "category": "basics",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "let is block-scoped, var is function-scoped", "correct": true },
+      { "text": "let is function-scoped, var is block-scoped", "correct": false },
+      { "text": "There is no difference", "correct": false },
+      { "text": "let can be redeclared, var cannot", "correct": false }
+    ],
+    "tags": ["variables", "scope"]
+  },
+  {
+    "text": "What does the optional chaining operator (?.) do?",
+    "category": "basics",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "Returns undefined if the left side is null or undefined, otherwise continues", "correct": true },
+      { "text": "Throws an error if a property doesn't exist", "correct": false },
+      { "text": "Creates a new property if it doesn't exist", "correct": false },
+      { "text": "Returns null for any undefined value", "correct": false }
+    ],
+    "tags": ["operators", "objects"]
+  },
+  {
+    "text": "What is a closure in JavaScript?",
+    "category": "advanced",
+    "difficulty": "hard",
+    "source": "javascript.info",
+    "options": [
+      { "text": "A function that has access to variables in its outer (enclosing) lexical scope", "correct": true },
+      { "text": "A way to close a function", "correct": false },
+      { "text": "A method to prevent memory leaks", "correct": false },
+      { "text": "A type of loop", "correct": false }
+    ],
+    "tags": ["functions", "closures", "scope"]
+  },
+  {
+    "text": "What does the spread operator (...) do when used with arrays?",
+    "category": "basics",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "Expands an array into individual elements", "correct": true },
+      { "text": "Combines multiple arrays into one", "correct": false },
+      { "text": "Removes duplicate elements", "correct": false },
+      { "text": "Sorts the array", "correct": false }
+    ],
+    "tags": ["arrays", "operators", "destructuring"]
+  },
+  {
+    "text": "What is the main difference between arrow functions and regular functions?",
+    "category": "basics",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "Arrow functions don't have their own 'this' binding", "correct": true },
+      { "text": "Arrow functions cannot return values", "correct": false },
+      { "text": "Regular functions cannot use parameters", "correct": false },
+      { "text": "There is no difference", "correct": false }
+    ],
+    "tags": ["functions", "arrow-functions"]
+  },
+  {
+    "text": "What does Promise.resolve() return?",
+    "category": "advanced",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "A resolved promise with the given value", "correct": true },
+      { "text": "A rejected promise", "correct": false },
+      { "text": "A pending promise", "correct": false },
+      { "text": "The value itself, not wrapped in a promise", "correct": false }
+    ],
+    "tags": ["promises", "async"]
+  },
+  {
+    "text": "What is the purpose of the 'async' keyword in JavaScript?",
+    "category": "advanced",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "It makes a function return a promise", "correct": true },
+      { "text": "It makes code run faster", "correct": false },
+      { "text": "It prevents errors", "correct": false },
+      { "text": "It makes variables asynchronous", "correct": false }
+    ],
+    "tags": ["async", "promises", "functions"]
+  },
+  {
+    "text": "What happens when you use Object.assign()?",
+    "category": "basics",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "Copies properties from source objects to a target object", "correct": true },
+      { "text": "Creates a deep copy of an object", "correct": false },
+      { "text": "Deletes properties from an object", "correct": false },
+      { "text": "Merges arrays", "correct": false }
+    ],
+    "tags": ["objects", "methods"]
+  },
+  {
+    "text": "What is the difference between == and === in JavaScript?",
+    "category": "basics",
+    "difficulty": "easy",
+    "source": "javascript.info",
+    "options": [
+      { "text": "=== checks both value and type, == only checks value (with type coercion)", "correct": true },
+      { "text": "== checks both value and type, === only checks value", "correct": false },
+      { "text": "There is no difference", "correct": false },
+      { "text": "=== is deprecated, use == instead", "correct": false }
+    ],
+    "tags": ["operators", "comparisons", "types"]
+  },
+  {
+    "text": "What does the 'class' keyword in JavaScript create?",
+    "category": "advanced",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "A constructor function with prototype-based inheritance", "correct": true },
+      { "text": "A completely new type system", "correct": false },
+      { "text": "A namespace", "correct": false },
+      { "text": "A module", "correct": false }
+    ],
+    "tags": ["classes", "oop", "inheritance"]
+  },
+  {
+    "text": "What is the event loop in JavaScript?",
+    "category": "advanced",
+    "difficulty": "hard",
+    "source": "javascript.info",
+    "options": [
+      { "text": "A mechanism that handles asynchronous operations by managing the call stack and callback queue", "correct": true },
+      { "text": "A type of loop like for or while", "correct": false },
+      { "text": "A way to prevent infinite loops", "correct": false },
+      { "text": "A debugging tool", "correct": false }
+    ],
+    "tags": ["async", "event-loop", "concurrency"]
+  }
+]

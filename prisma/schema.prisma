@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Question {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  text       String
+  category   String
+  difficulty String
+  source     String?
+  createdAt  DateTime @default(now())
+  options    Option[]
+  tagIds     String[] @db.ObjectId
+}
+
+model Option {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  text       String
+  correct    Boolean  @default(false)
+  questionId String   @db.ObjectId
+  question   Question @relation(fields: [questionId], references: [id])
+}
+
+model Tag {
+  id         String     @id @default(auto()) @map("_id") @db.ObjectId
+  name       String     @unique
+}
