@@ -126,12 +126,12 @@ export const TriviaScreen = () => {
             onAnswerChange={handleAnswerChange}
           />
 
-          <div className="flex justify-end w-full max-w-2xl">
+          <div className="flex w-full max-w-2xl">
             <Button
               onClick={handleNext}
-              className="min-w-[120px]"
+              className="min-w-[120px] w-full"
             >
-              {isLastQuestion ? "Finalizar" : "Siguiente"}
+              {isLastQuestion ? "Finish" : "Next"}
             </Button>
           </div>
         </div>
