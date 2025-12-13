@@ -24,7 +24,7 @@ export const QuestionCard = ({
     <Card className="w-full max-w-2xl">
       <CardHeader>
         <CardTitle className="text-lg font-medium text-muted-foreground">
-          Pregunta {questionNumber} de {totalQuestions}
+          {questionNumber} / {totalQuestions}
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
