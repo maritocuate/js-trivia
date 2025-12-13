@@ -60,7 +60,7 @@ export const TriviaScreen = () => {
     return (
       <div className="min-h-screen bg-background py-12 px-4 flex items-center justify-center">
         <div className="text-center space-y-2">
-          <h1 className="text-2xl font-semibold text-foreground">Cargando preguntas...</h1>
+          <h1 className="text-2xl font-semibold text-foreground">Loading questions...</h1>
         </div>
       </div>
     );
@@ -70,7 +70,7 @@ export const TriviaScreen = () => {
     return (
       <div className="min-h-screen bg-background py-12 px-4 flex items-center justify-center">
         <div className="text-center space-y-2">
-          <h1 className="text-2xl font-semibold text-foreground">No hay preguntas disponibles</h1>
+          <h1 className="text-2xl font-semibold text-foreground">No questions available</h1>
         </div>
       </div>
     );

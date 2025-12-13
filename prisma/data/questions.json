@@ -154,5 +154,83 @@
       { "text": "A debugging tool", "correct": false }
     ],
     "tags": ["async", "event-loop", "concurrency"]
+  },
+  {
+    "text": "What is hoisting in JavaScript?",
+    "category": "basics",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "The behavior where variable and function declarations are moved to the top of their scope before code execution", "correct": true },
+      { "text": "A way to lift elements in the DOM", "correct": false },
+      { "text": "A method to prevent variable redeclaration", "correct": false },
+      { "text": "A feature that only works with arrow functions", "correct": false }
+    ],
+    "tags": ["hoisting", "variables", "functions", "scope"]
+  },
+  {
+    "text": "What are template literals in JavaScript?",
+    "category": "basics",
+    "difficulty": "easy",
+    "source": "javascript.info",
+    "options": [
+      { "text": "String literals that allow embedded expressions and multi-line strings using backticks", "correct": true },
+      { "text": "A way to create HTML templates that can be rendered in the browser using special syntax", "correct": false },
+      { "text": "A method to format numbers with specific decimal places and currency symbols", "correct": false },
+      { "text": "A type of array literal that stores template objects", "correct": false }
+    ],
+    "tags": ["strings", "template-literals", "syntax"]
+  },
+  {
+    "text": "What does destructuring assignment allow you to do in JavaScript?",
+    "category": "basics",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "Extract values from arrays or properties from objects into distinct variables", "correct": true },
+      { "text": "Remove elements from arrays or delete properties from objects permanently", "correct": false },
+      { "text": "Convert arrays to objects and objects to arrays automatically", "correct": false },
+      { "text": "Create deep copies of complex nested data structures without any side effects", "correct": false }
+    ],
+    "tags": ["destructuring", "arrays", "objects", "syntax"]
+  },
+  {
+    "text": "What is the main purpose of the reduce() method in JavaScript?",
+    "category": "basics",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "To reduce an array to a single value by applying a function to each element", "correct": true },
+      { "text": "To reduce memory usage by compressing array elements into a more compact format", "correct": false },
+      { "text": "To reduce the number of iterations needed by optimizing the array traversal algorithm", "correct": false },
+      { "text": "To reduce callback execution time by batching multiple operations into a single pass", "correct": false }
+    ],
+    "tags": ["arrays", "methods", "functional-programming"]
+  },
+  {
+    "text": "What is the difference between null and undefined in JavaScript?",
+    "category": "basics",
+    "difficulty": "easy",
+    "source": "javascript.info",
+    "options": [
+        { "text": "undefined is an empty value, null is not defined", "correct": false },
+        { "text": "There is no difference", "correct": false },
+        { "text": "null is an empty value, undefined is not defined", "correct": true },
+        { "text": "null is a primitive value, undefined is an object", "correct": false }
+    ],
+    "tags": ["null", "undefined", "types"]
+  },
+  {
+    "text": "What is 'type coercion' in JavaScript?",
+    "category": "basics",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+        { "text": "The process of converting a value from one type to another", "correct": true },
+        { "text": "The process of converting a value to a number", "correct": false },
+        { "text": "The process of converting a value to a string", "correct": false },
+        { "text": "The process of converting a value to a primitive value", "correct": false }
+    ],
+    "tags": ["type-coercion", "types"]
   }
 ]

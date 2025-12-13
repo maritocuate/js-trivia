@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Trivia de JavaScript",
-  description: "Pon a prueba tus conocimientos de JavaScript",
+  title: "JavaScript Trivia",
+  description: "Test your knowledge of JavaScript",
 };
 
 export default function RootLayout({
