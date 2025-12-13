@@ -100,11 +100,22 @@ export const TriviaScreen = () => {
     ).length;
   };
 
+  const getIncorrectQuestions = () => {
+    return questions
+      .filter((q) => answers[q.id] !== q.correctAnswer)
+      .map((q) => ({
+        question: q.question,
+        userAnswer: answers[q.id] || "No respondida",
+        correctAnswer: q.correctAnswer,
+      }));
+  };
+
   if (showResults) {
     return (
       <ResultsScreen
         totalQuestions={questions.length}
         correctAnswers={calculateCorrectAnswers()}
+        incorrectQuestions={getIncorrectQuestions()}
       />
     );
   }
