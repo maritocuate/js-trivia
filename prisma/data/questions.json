@@ -232,5 +232,525 @@
         { "text": "The process of converting a value to a primitive value", "correct": false }
     ],
     "tags": ["type-coercion", "types"]
+  },
+  {
+    "text": "What does Array.prototype.includes() return?",
+    "category": "basics",
+    "difficulty": "easy",
+    "source": "javascript.info",
+    "options": [
+      { "text": "true or false", "correct": true },
+      { "text": "The index of the element", "correct": false },
+      { "text": "The element itself", "correct": false },
+      { "text": "undefined if not found", "correct": false }
+    ],
+    "tags": ["arrays", "methods"]
+  },
+  {
+    "text": "What happens if a function has no return statement?",
+    "category": "basics",
+    "difficulty": "easy",
+    "source": "javascript.info",
+    "options": [
+      { "text": "It returns undefined", "correct": true },
+      { "text": "It throws an error", "correct": false },
+      { "text": "It returns null", "correct": false },
+      { "text": "It returns false", "correct": false }
+    ],
+    "tags": ["functions", "return"]
+  },
+  {
+    "text": "Which value is NOT falsy in JavaScript?",
+    "category": "basics",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "\"0\"", "correct": true },
+      { "text": "0", "correct": false },
+      { "text": "null", "correct": false },
+      { "text": "undefined", "correct": false }
+    ],
+    "tags": ["types", "coercion"]
+  },
+  {
+    "text": "What does Object.keys(obj) return?",
+    "category": "basics",
+    "difficulty": "easy",
+    "source": "javascript.info",
+    "options": [
+      { "text": "An array of property names", "correct": true },
+      { "text": "An array of property values", "correct": false },
+      { "text": "A map of keys and values", "correct": false },
+      { "text": "The number of properties", "correct": false }
+    ],
+    "tags": ["objects", "methods"]
+  },
+  {
+    "text": "What is the result of typeof NaN?",
+    "category": "basics",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "\"number\"", "correct": true },
+      { "text": "\"NaN\"", "correct": false },
+      { "text": "\"undefined\"", "correct": false },
+      { "text": "\"object\"", "correct": false }
+    ],
+    "tags": ["types", "numbers"]
+  },
+  {
+    "text": "What does the 'finally' block do in a try/catch statement?",
+    "category": "advanced",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "Runs regardless of whether an error occurred", "correct": true },
+      { "text": "Runs only if there is no error", "correct": false },
+      { "text": "Catches asynchronous errors", "correct": false },
+      { "text": "Stops error propagation", "correct": false }
+    ],
+    "tags": ["errors", "try-catch"]
+  },
+  {
+    "text": "What is the purpose of the rest parameter (...) in functions?",
+    "category": "basics",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "It collects remaining arguments into an array", "correct": true },
+      { "text": "It spreads arguments into separate values", "correct": false },
+      { "text": "It limits the number of arguments", "correct": false },
+      { "text": "It clones the arguments object", "correct": false }
+    ],
+    "tags": ["functions", "parameters"]
+  },
+  {
+    "text": "What does setTimeout(fn, 0) guarantee?",
+    "category": "advanced",
+    "difficulty": "hard",
+    "source": "javascript.info",
+    "options": [
+      { "text": "The function runs after the current call stack is empty", "correct": true },
+      { "text": "The function runs immediately", "correct": false },
+      { "text": "The function runs before promises", "correct": false },
+      { "text": "The function runs in parallel", "correct": false }
+    ],
+    "tags": ["event-loop", "async"]
+  },
+  {
+    "text": "What does Array.isArray(value) check?",
+    "category": "basics",
+    "difficulty": "easy",
+    "source": "javascript.info",
+    "options": [
+      { "text": "Whether the value is an array", "correct": true },
+      { "text": "Whether the value is iterable", "correct": false },
+      { "text": "Whether the value is an object", "correct": false },
+      { "text": "Whether the value has numeric keys", "correct": false }
+    ],
+    "tags": ["arrays", "types"]
+  },
+  {
+    "text": "Why are arrow functions not suitable as constructors?",
+    "category": "advanced",
+    "difficulty": "hard",
+    "source": "javascript.info",
+    "options": [
+      { "text": "They do not have their own this", "correct": true },
+      { "text": "They cannot accept parameters", "correct": false },
+      { "text": "They always return undefined", "correct": false },
+      { "text": "They are slower than regular functions", "correct": false }
+    ],
+    "tags": ["functions", "arrow-functions", "oop"]
+  },
+  {
+    "text": "Which of the following values is falsy in JavaScript?",
+    "category": "basics",
+    "difficulty": "easy",
+    "source": "javascript.info",
+    "options": [
+      { "text": "false", "correct": true },
+      { "text": "\"false\"", "correct": false },
+      { "text": "[]", "correct": false },
+      { "text": "{}", "correct": false }
+    ],
+    "tags": ["falsy", "types"]
+  },
+  {
+    "text": "What happens to a promise after it is settled?",
+    "category": "advanced",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "Its state cannot change", "correct": true },
+      { "text": "It can resolve again", "correct": false },
+      { "text": "It becomes pending again", "correct": false },
+      { "text": "It is automatically garbage collected", "correct": false }
+    ],
+    "tags": ["promises", "async"]
+  },
+  {
+    "text": "Which queue has higher priority in the event loop?",
+    "category": "advanced",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "Microtask queue", "correct": true },
+      { "text": "Macrotask queue", "correct": false },
+      { "text": "Render queue", "correct": false },
+      { "text": "Callback stack", "correct": false }
+    ],
+    "tags": ["event-loop", "microtasks"]
+  },
+  {
+    "text": "What does Promise.all() do?",
+    "category": "advanced",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "Resolves when all promises resolve", "correct": true },
+      { "text": "Resolves when the first promise resolves", "correct": false },
+      { "text": "Ignores rejected promises", "correct": false },
+      { "text": "Executes promises sequentially", "correct": false }
+    ],
+    "tags": ["promises", "async"]
+  },
+  {
+    "text": "Why is callback hell a problem?",
+    "category": "advanced",
+    "difficulty": "easy",
+    "source": "javascript.info",
+    "options": [
+      { "text": "It makes code hard to read and maintain", "correct": true },
+      { "text": "It causes syntax errors", "correct": false },
+      { "text": "It blocks the event loop", "correct": false },
+      { "text": "It prevents async execution", "correct": false }
+    ],
+    "tags": ["callbacks", "async"]
+  },
+  {
+    "text": "What does the async keyword guarantee?",
+    "category": "advanced",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "The function returns a promise", "correct": true },
+      { "text": "The function runs in a new thread", "correct": false },
+      { "text": "The function executes faster", "correct": false },
+      { "text": "Errors are automatically handled", "correct": false }
+    ],
+    "tags": ["async", "promises"]
+  },
+  {
+    "text": "What happens if an error is thrown inside a promise without a catch?",
+    "category": "advanced",
+    "difficulty": "hard",
+    "source": "javascript.info",
+    "options": [
+      { "text": "The promise becomes rejected", "correct": true },
+      { "text": "The error is ignored", "correct": false },
+      { "text": "The browser crashes", "correct": false },
+      { "text": "The promise stays pending", "correct": false }
+    ],
+    "tags": ["promises", "errors"]
+  },
+  {
+    "text": "What is the main difference between callbacks and promises?",
+    "category": "advanced",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "Promises allow chaining and better error handling", "correct": true },
+      { "text": "Callbacks are asynchronous, promises are not", "correct": false },
+      { "text": "Promises run in parallel by default", "correct": false },
+      { "text": "Callbacks cannot return values", "correct": false }
+    ],
+    "tags": ["callbacks", "promises"]
+  },
+  {
+    "text": "Which statement about await is correct?",
+    "category": "advanced",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "It pauses execution inside an async function", "correct": true },
+      { "text": "It blocks the entire event loop", "correct": false },
+      { "text": "It works in any function", "correct": false },
+      { "text": "It converts callbacks to promises automatically", "correct": false }
+    ],
+    "tags": ["async", "await"]
+  },
+  {
+    "text": "Which value is NOT falsy?",
+    "category": "basics",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "\"\"", "correct": false },
+      { "text": "0", "correct": false },
+      { "text": "null", "correct": false },
+      { "text": "\"0\"", "correct": true }
+    ],
+    "tags": ["falsy", "coercion"]
+  },
+  {
+    "text": "Which of these is a microtask?",
+    "category": "advanced",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "Promise.then()", "correct": true },
+      { "text": "setTimeout()", "correct": false },
+      { "text": "setInterval()", "correct": false },
+      { "text": "DOM event callback", "correct": false }
+    ],
+    "tags": ["event-loop", "microtasks"]
+  },
+  {
+    "text": "When are microtasks executed?",
+    "category": "advanced",
+    "difficulty": "hard",
+    "source": "javascript.info",
+    "options": [
+      { "text": "After the current call stack, before rendering", "correct": true },
+      { "text": "After rendering", "correct": false },
+      { "text": "Only after macrotasks", "correct": false },
+      { "text": "In parallel with macrotasks", "correct": false }
+    ],
+    "tags": ["event-loop", "microtasks"]
+  },
+  {
+    "text": "Which operation schedules a macrotask?",
+    "category": "advanced",
+    "difficulty": "easy",
+    "source": "javascript.info",
+    "options": [
+      { "text": "setTimeout()", "correct": true },
+      { "text": "Promise.resolve()", "correct": false },
+      { "text": "queueMicrotask()", "correct": false },
+      { "text": "await", "correct": false }
+    ],
+    "tags": ["event-loop", "macrotasks"]
+  },
+  {
+    "text": "What happens when you modify the DOM repeatedly inside a loop?",
+    "category": "advanced",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "It may cause multiple reflows and hurt performance", "correct": true },
+      { "text": "The changes are ignored", "correct": false },
+      { "text": "The browser batches changes automatically", "correct": false },
+      { "text": "JavaScript execution stops", "correct": false }
+    ],
+    "tags": ["dom", "performance"]
+  },
+  {
+    "text": "Which approach is more efficient for multiple DOM updates?",
+    "category": "advanced",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "Using a DocumentFragment", "correct": true },
+      { "text": "Updating innerHTML repeatedly", "correct": false },
+      { "text": "Using setTimeout between updates", "correct": false },
+      { "text": "Forcing reflows manually", "correct": false }
+    ],
+    "tags": ["dom", "performance"]
+  },
+  {
+    "text": "How does JavaScript look up a property on an object?",
+    "category": "basics",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "Through the prototype chain", "correct": true },
+      { "text": "Only on the object itself", "correct": false },
+      { "text": "Through closures", "correct": false },
+      { "text": "Through the global scope", "correct": false }
+    ],
+    "tags": ["prototypes", "oop"]
+  },
+  {
+    "text": "What does Object.create(proto) do?",
+    "category": "advanced",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "Creates a new object with the given prototype", "correct": true },
+      { "text": "Clones an object deeply", "correct": false },
+      { "text": "Freezes the prototype", "correct": false },
+      { "text": "Copies prototype methods only", "correct": false }
+    ],
+    "tags": ["prototypes", "objects"]
+  },
+  {
+    "text": "What is event delegation?",
+    "category": "basics",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "Handling events at a parent level", "correct": true },
+      { "text": "Stopping event propagation", "correct": false },
+      { "text": "Using capture instead of bubble", "correct": false },
+      { "text": "Binding events only once", "correct": false }
+    ],
+    "tags": ["events", "dom"]
+  },
+  {
+    "text": "Which phase does event bubbling occur in?",
+    "category": "basics",
+    "difficulty": "easy",
+    "source": "javascript.info",
+    "options": [
+      { "text": "From target to root", "correct": true },
+      { "text": "From root to target", "correct": false },
+      { "text": "Before capture", "correct": false },
+      { "text": "Outside the DOM tree", "correct": false }
+    ],
+    "tags": ["events", "bubbling"]
+  },
+  {
+    "text": "What does event.stopPropagation() do?",
+    "category": "basics",
+    "difficulty": "easy",
+    "source": "javascript.info",
+    "options": [
+      { "text": "Stops the event from bubbling further", "correct": true },
+      { "text": "Prevents the default browser action", "correct": false },
+      { "text": "Removes the event listener", "correct": false },
+      { "text": "Cancels asynchronous tasks", "correct": false }
+    ],
+    "tags": ["events", "dom"]
+  },
+  {
+    "text": "What is the output of the following code?\n\nconsole.log(1);\nPromise.resolve().then(() => console.log(2));\nconsole.log(3);",
+    "category": "advanced",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "1 3 2", "correct": true },
+      { "text": "1 2 3", "correct": false },
+      { "text": "2 1 3", "correct": false },
+      { "text": "3 1 2", "correct": false }
+    ],
+    "tags": ["event-loop", "microtasks"]
+  },
+  {
+    "text": "What is the output of the following code?\n\nsetTimeout(() => console.log('A'));\nPromise.resolve().then(() => console.log('B'));\nconsole.log('C');",
+    "category": "advanced",
+    "difficulty": "hard",
+    "source": "javascript.info",
+    "options": [
+      { "text": "C B A", "correct": true },
+      { "text": "B C A", "correct": false },
+      { "text": "C A B", "correct": false },
+      { "text": "A B C", "correct": false }
+    ],
+    "tags": ["event-loop", "macrotasks", "microtasks"]
+  },
+  {
+    "text": "What is logged?\n\nlet x = 10;\nfunction test() {\n  console.log(x);\n  let x = 20;\n}\ntest();",
+    "category": "advanced",
+    "difficulty": "hard",
+    "source": "javascript.info",
+    "options": [
+      { "text": "ReferenceError", "correct": true },
+      { "text": "10", "correct": false },
+      { "text": "20", "correct": false },
+      { "text": "undefined", "correct": false }
+    ],
+    "tags": ["hoisting", "temporal-dead-zone"]
+  },
+  {
+    "text": "What is the output?\n\nfor (var i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 0);\n}",
+    "category": "advanced",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "3 3 3", "correct": true },
+      { "text": "0 1 2", "correct": false },
+      { "text": "1 2 3", "correct": false },
+      { "text": "undefined undefined undefined", "correct": false }
+    ],
+    "tags": ["closures", "var", "event-loop"]
+  },
+  {
+    "text": "What is the output?\n\nlet i = 0;\nsetTimeout(() => console.log(i), 0);\ni = 1;",
+    "category": "advanced",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "1", "correct": true },
+      { "text": "0", "correct": false },
+      { "text": "undefined", "correct": false },
+      { "text": "ReferenceError", "correct": false }
+    ],
+    "tags": ["closures", "async"]
+  },
+  {
+    "text": "What is the output?\n\nconsole.log(typeof null);",
+    "category": "basics",
+    "difficulty": "easy",
+    "source": "javascript.info",
+    "options": [
+      { "text": "\"object\"", "correct": true },
+      { "text": "\"null\"", "correct": false },
+      { "text": "\"undefined\"", "correct": false },
+      { "text": "\"number\"", "correct": false }
+    ],
+    "tags": ["types"]
+  },
+  {
+    "text": "What is logged?\n\nconst obj = { a: 1 };\nObject.freeze(obj);\nobj.a = 2;\nconsole.log(obj.a);",
+    "category": "advanced",
+    "difficulty": "medium",
+    "source": "javascript.info",
+    "options": [
+      { "text": "1", "correct": true },
+      { "text": "2", "correct": false },
+      { "text": "undefined", "correct": false },
+      { "text": "TypeError", "correct": false }
+    ],
+    "tags": ["objects", "immutability"]
+  },
+  {
+    "text": "What is the output?\n\nfunction Foo() {}\nFoo.prototype.x = 1;\nconst a = new Foo();\nconsole.log(a.x);",
+    "category": "advanced",
+    "difficulty": "easy",
+    "source": "javascript.info",
+    "options": [
+      { "text": "1", "correct": true },
+      { "text": "undefined", "correct": false },
+      { "text": "ReferenceError", "correct": false },
+      { "text": "null", "correct": false }
+    ],
+    "tags": ["prototypes"]
+  },
+  {
+    "text": "What is the output?\n\nasync function f() {\n  return 5;\n}\nf().then(console.log);",
+    "category": "advanced",
+    "difficulty": "easy",
+    "source": "javascript.info",
+    "options": [
+      { "text": "5", "correct": true },
+      { "text": "Promise { 5 }", "correct": false },
+      { "text": "undefined", "correct": false },
+      { "text": "Error", "correct": false }
+    ],
+    "tags": ["async", "promises"]
+  },
+  {
+    "text": "What is the output?\n\nconsole.log([] == false);",
+    "category": "advanced",
+    "difficulty": "hard",
+    "source": "javascript.info",
+    "options": [
+      { "text": "true", "correct": true },
+      { "text": "false", "correct": false },
+      { "text": "TypeError", "correct": false },
+      { "text": "undefined", "correct": false }
+    ],
+    "tags": ["coercion", "comparisons"]
   }
 ]
